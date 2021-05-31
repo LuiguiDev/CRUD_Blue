@@ -119,7 +119,7 @@ if __name == '__main':
         planets_list()
 
     elif command=='C':
-        planet_name= _get_planet_name()
+        planet_name= _get_planet_field('name')
         found= search_planet(planet_name)
 
         if found:
