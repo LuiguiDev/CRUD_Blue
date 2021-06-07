@@ -4,17 +4,26 @@
 __name = '__main'
 
 planets = [
-    {'Planet': 'Mercury',
-     'Clasification':'Rocky planet',
-     'Distance to sun': '57 910 000 Km',
-     'Day duration': '58 Earth days',
-     'Moons': 'None',
+    {
+    'Planet': 'Mercury',
+    'Clasification':'Rocky planet',
+    'Distance to sun': '57 910 000 Km',
+    'Day duration': '58 Earth days',
+    'Moons': 'None',
      },
-    {'Planet': 'Venus',
-     'Clasification': 'Rocky planet',
-     'Distance to sun': '108 200 000 Km',
-     'Day duration': '116 Earth days',
-     'Moons':'None'
+    {
+    'Planet': 'Venus',
+    'Clasification': 'Rocky planet',
+    'Distance to sun': '108 200 000 Km',
+    'Day duration': '116 Earth days',
+    'Moons':'None'
+    },
+    {
+    'Planet': 'Earth',
+    'Clasification': 'Rocky planet',
+    'Distance to sun': '57 910 000 Km',
+    'Day duration': '24 hours',
+    'Moons': 'Moon'
     }
 ]
 
@@ -28,12 +37,13 @@ def  create_planet(planet):
 
 
 def deleate_planet(planet_name):
-    global planets
 
-    if planet_name in planets:
-        planets.remove(planet_name)
-    else:
-        _unkwnow_planet()
+    for planet in planets:
+        if planet['Planet'] == planet_name:
+            planets.remove(planet)
+            
+        else:
+            _unkwnow_planet()
 
 def update_planet(planet, updated_planet_name):
     global planets
@@ -51,7 +61,7 @@ def search_planet(planet_name):
         if planet['Planet'] != planet_name:
             continue
         else:
-            return True
+            return False
 
 def planets_list():
     for idx, planet in enumerate(planets):
@@ -137,7 +147,7 @@ if __name == '__main':
 
 
     elif command== 'D':
-        planet_name= _get_planet_name()
+        planet_name= _get_planet_field('name')
         found= search_planet(planet_name)
 
         if found:
