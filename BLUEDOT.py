@@ -68,8 +68,7 @@ def  create_planet(planet):
     if planet not in planets:
         planets.append(planet)
     else:
-        print('Planet already is in planet\'s list')
-
+        _planet_in_list()
 
 def deleate_planet(planet_name):
 
@@ -116,16 +115,11 @@ def _get_planet_field(fild_name):
         fild= input ('Write planet {}: '.format(fild_name))
     return fild
 
-def _get_planet_idx():
-    return input ('Write planet index: ')
-
-def _get_planet_name():
-    return input('Write planet name: ')
-
 def _unkwnow_planet():
-    print('Unkwnow planet')
+    print('Planet \'{}\' is not in planet\'s list'.format(planet_name))
 
-
+def _planet_in_list():
+    print('Planet already is in planet\'s list')
 
 
 def _interfaz():
@@ -158,6 +152,7 @@ if __name == '__main':
         create_planet(planet)
         planets_list()
 
+
     elif command=='B':
         planet_name= _get_planet_field('name')
         deleate_planet(planet_name)
@@ -180,15 +175,14 @@ if __name == '__main':
         else:
             print('Planet \'{}\' is not in planet\'s list'.format(_get_planet_field('name')))
 
-
     elif command== 'D':
         planet_name= _get_planet_field('name')
         found= search_planet(planet_name)
 
         if found:
-            print('Planet is in planet\'s list')
+            _planet_in_list()
         else:
-            print('Planet \'{}\' is not in planet\'s list'.format(planet_name))
+            _unkwnow_planet()
 
     elif command== 'E':
         planets_list()
