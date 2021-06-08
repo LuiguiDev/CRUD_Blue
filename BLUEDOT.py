@@ -79,15 +79,15 @@ def deleate_planet(planet_name):
     else:
         _unkwnow_planet()
 
-def update_planet(planet, updated_planet_name):
-    global planets
+def update_planet(planet_name, updated_planet_name):
 
-    for idx, planet in enumerate(planets):
-        if planet['Planet'] == planet:
-            planet= updated_planet_name
-
+    for planet in planets:
+        if planet['Planet'] == planet_name:
+            index= planets.index(planet)
+            planets[index]= updated_planet_name
+            return True
     else:
-        return False
+        _unkwnow_planet()
 
 def search_planet(planet_name):
 
@@ -160,20 +160,16 @@ if __name == '__main':
 
     elif command=='C':
         planet_name= _get_planet_field('name')
-        found= search_planet(planet_name)
+        updated_planet_name= {
+        'Planet': _get_planet_field('u name'),
+        'Clasification': _get_planet_field('u clasification'),
+        'Distance to sun': _get_planet_field('u distance'),
+        'Day duration': _get_planet_field('u day'),
+        'Moons': _get_planet_field('u moons')
+        }
+        update_planet(planet_name, updated_planet_name)
 
-        if found:
-            updated_planet_name= {
-            'Planet': _get_planet_field('name'),
-            'Clasification': _get_planet_field('clasification'),
-            'Distance to sun': _get_planet_field('distance'),
-            'Day duration': _get_planet_field('day'),
-            'Moons': _get_planet_field('moons')
-            }
-            update_planet(planet_name, updated_planet_name)
-            planets_list()
-        else:
-            print('Planet \'{}\' is not in planet\'s list'.format(_get_planet_field('name')))
+        planets_list()
 
     elif command== 'D':
         planet_name= _get_planet_field('name')
