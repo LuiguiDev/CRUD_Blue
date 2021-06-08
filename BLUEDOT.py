@@ -21,9 +21,44 @@ planets = [
     {
     'Planet': 'Earth',
     'Clasification': 'Rocky planet',
-    'Distance to sun': '57 910 000 Km',
+    'Distance to sun': '150 300 000 Km',
     'Day duration': '24 hours',
     'Moons': 'Moon'
+    },
+    {
+    'Planet': 'Mars',
+    'Clasification': 'Rocky planet',
+    'Distance to sun': '206 700 000 Km',
+    'Day duration': '1 earth day with 37 min',
+    'Moons': 'Deimos, Fobos',
+    },
+    {
+    'Planet': 'Jupiter',
+    'Clasification': 'Gaseous planet',
+    'Distance to sun': '778 500 000 Km',
+    'Day duration': '9 earth hours',
+    'Moons': 'Europa, Ganimedes, ío, Calisto',
+    },
+    {
+    'Planet': 'Saturn',
+    'Clasification': 'Gaseous planet',
+    'Distance to sun': '1 434 000 000 Km',
+    'Day duration': '10 earth hours',
+    'Moons': 'Titán, Encélado, Mimas',
+    },
+    {
+    'Planet': 'Uranus',
+    'Clasification': 'Gaseous planet',
+    'Distance to sun': '2 871 000 000 Km',
+    'Day duration': '17 earth hours',
+    'Moons': 'Umbruel, Titania',
+    },
+    {
+    'Planet': 'Neptune',
+    'Clasification': 'Gaseous planet',
+    'Distance to sun': '4 495 000 000 000 Km',
+    'Day duration': '16 earth hours',
+    'Moons': 'Tritón',
     }
 ]
 
