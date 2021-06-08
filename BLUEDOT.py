@@ -41,9 +41,9 @@ def deleate_planet(planet_name):
     for planet in planets:
         if planet['Planet'] == planet_name:
             planets.remove(planet)
-            
-        else:
-            _unkwnow_planet()
+            return True
+    else:
+        _unkwnow_planet()
 
 def update_planet(planet, updated_planet_name):
     global planets
@@ -61,7 +61,7 @@ def search_planet(planet_name):
         if planet['Planet'] != planet_name:
             continue
         else:
-            return False
+            return True
 
 def planets_list():
     for idx, planet in enumerate(planets):
