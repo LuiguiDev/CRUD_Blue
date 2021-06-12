@@ -79,15 +79,15 @@ def deleate_planet(planet_name):
     else:
         _unkwnow_planet()
 
-def update_planet(planet_name, updated_planet_name):
+def update_planet(planet_name, updated_planet):
 
     for planet in planets:
         if planet['Planet'] == planet_name:
             index= planets.index(planet)
-            planets[index]= updated_planet_name
-            return True
+            planets[index]= updated_planet
+
     else:
-        _unkwnow_planet()
+        return True
 
 def search_planet(planet_name):
 
@@ -98,6 +98,7 @@ def search_planet(planet_name):
             return True
 
 def planets_list():
+    ui_ux()
     for idx, planet in enumerate(planets):
         print('{num} | {name} | {clasification} | {distance} | {day} | {moon}'.format(
             num= idx,
@@ -110,10 +111,15 @@ def planets_list():
 
 def _get_planet_field(fild_name):
     fild= None
-
     while not fild:
         fild= input ('Write planet {}: '.format(fild_name))
     return fild
+
+def _get_updated_field(fild_name):
+    updated_fild= None
+    while not updated_fild:
+        updated_fild= input ('Write updated planet {}: '.format(fild_name))
+    return updated_fild
 
 def _unkwnow_planet():
     print('Planet \'{}\' is not in planet\'s list'.format(planet_name))
@@ -121,10 +127,12 @@ def _unkwnow_planet():
 def _planet_in_list():
     print('Planet already is in planet\'s list')
 
+def ui_ux(): print('-' * 30)
+
 
 def _interfaz():
     print(' Welcome to BLUEDOT')
-    print('*' * 30)
+    ui_ux()
     print('What would you like to do?')
 
     print('[A] Add planet')
@@ -160,16 +168,21 @@ if __name == '__main':
 
     elif command=='C':
         planet_name= _get_planet_field('name')
-        updated_planet_name= {
-        'Planet': _get_planet_field('u name'),
-        'Clasification': _get_planet_field('u clasification'),
-        'Distance to sun': _get_planet_field('u distance'),
-        'Day duration': _get_planet_field('u day'),
-        'Moons': _get_planet_field('u moons')
-        }
-        update_planet(planet_name, updated_planet_name)
+        found= search_planet(planet_name)
 
-        planets_list()
+        if found:
+            updated_planet= {
+            'Planet': _get_updated_field('name'),
+            'Clasification': _get_updated_field('clasification'),
+            'Distance to sun': _get_updated_field('distance'),
+            'Day duration': _get_updated_field('day'),
+            'Moons': _get_updated_field('moons')
+            }
+            update_planet(planet_name, updated_planet)
+            planets_list()
+        else:
+            _unkwnow_planet()
+            planets_list()
 
     elif command== 'D':
         planet_name= _get_planet_field('name')
