@@ -133,7 +133,7 @@ def ui_ux(): print('-' * 30)
 def _interfaz():
     print(' Welcome to BLUEDOT')
     ui_ux()
-    print('What would you like to do?')
+    print('Commands:')
 
     print('[A] Add planet')
     print('[B] Deleate planet')
@@ -144,7 +144,8 @@ def _interfaz():
 if __name == '__main':
     _interfaz()
 
-    command=input()
+    print(' ')
+    command=input('What would you like to do?')
     command=command.upper()
 
                                 # COMMANDS
